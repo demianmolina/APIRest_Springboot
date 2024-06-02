@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "Employees",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Employees",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/employees"
+      }
+    },
+    {
+      "name": "Get employee",
+      "event": [],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/employee/1"
+      }
+    },
+    {
+      "name": "Add new employee",
+      "event": [],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/employee/",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Julia\",\n  \"lastName\": \"Robbinson\",\n  \"position\": \"UI/UX designer\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Modify Employee",
+      "event": [],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": "http://localhost:8080/employee/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John\",\n  \"lastName\": \"Doe\",\n  \"position\": \"Product Owner\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Delete Employee",
+      "event": [],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:8080/employee/5"
+      }
+    }
+  ],
+  "variable": []
+}
