@@ -25,6 +25,13 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, "Validation error", msg, req);
     }
 
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ApiError> handleUnauthorized(UnauthorizedException ex, HttpServletRequest req) {
+        return build(HttpStatus.UNAUTHORIZED, "Unauthorized", ex.getMessage(), req);
+    }
+
+
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleGeneric(Exception ex, HttpServletRequest req) {
         return build(HttpStatus.INTERNAL_SERVER_ERROR, "Error", ex.getMessage(), req);

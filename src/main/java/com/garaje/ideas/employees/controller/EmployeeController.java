@@ -2,6 +2,7 @@ package com.garaje.ideas.employees.controller;
 
 import com.garaje.ideas.employees.dto.EmployeeRequest;
 import com.garaje.ideas.employees.dto.EmployeeResponse;
+import com.garaje.ideas.employees.exception.UnauthorizedException;
 import com.garaje.ideas.employees.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -22,9 +23,19 @@ public class EmployeeController {
         return ResponseEntity.ok(service.list());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<EmployeeResponse> get(@PathVariable Long id) {
+    public ResponseEntity<EmployeeResponse> get(
+            @PathVariable Long id,
+            @RequestHeader(value = "Authorization", required = false) String token) {
+
+
+        if (token == null || !token.equals("Bearer 1234")) {
+            throw new UnauthorizedException("Token inválido o ausente");
+        }
+
+
         return ResponseEntity.ok(service.getById(id));
     }
+
     @PostMapping
     public ResponseEntity<EmployeeResponse> create(@Valid @RequestBody EmployeeRequest req) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(req));
