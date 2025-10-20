@@ -15,7 +15,7 @@ public class HealthController {
     public ResponseEntity<Map<String, Object>> health() {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "ok");
-        response.put("message", "API Rest Employees funcionando correctamente ✅");
+        response.put("message", "REST API Employees working correctly");
         response.put("timestamp", Instant.now().toString());
         return ResponseEntity.ok(response);
     }
