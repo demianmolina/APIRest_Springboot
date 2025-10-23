@@ -1,0 +1,26 @@
+# Build outputs
+/target/
+**/target/
+
+# IDE
+/.idea/
+/.vscode/
+/nbproject/private/
+/.classpath
+.project
+.settings
+.sts4-cache
+
+# Gradle
+/.gradle/
+build/
+**/build/
+
+# Module employees-web
+employees-web/target/
+employees-web/.idea/
+employees-web/.vscode/
+
+
+# Secretos
+firebase-service-account.json
